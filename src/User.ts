@@ -1,6 +1,7 @@
 import faker from 'faker';
+import { Mappable } from './CustomMap';
 
-class User {
+class User implements Mappable {
   loc: {
     lat: number;
     lng: number;
@@ -14,6 +15,10 @@ class User {
       lat: parseFloat(faker.address.latitude()),
       lng: parseFloat(faker.address.longitude()),
     };
+  }
+
+  makerContent(): string {
+    return ` <div>Worker name is ${this.name}</div>`;
   }
 }
 
